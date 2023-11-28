@@ -1,1 +1,1 @@
-pytest --alluredir report -cd
+pytest --env=com --alluredir report/

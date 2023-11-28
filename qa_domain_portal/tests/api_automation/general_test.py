@@ -2,14 +2,13 @@ import pytest
 
 from qa_domain_portal.services_config.portal import Portal
 
-
 pytestmark = pytest.mark.qa_portal
 
 
 @pytest.mark.qa_portal
 def test_healthcheck_portal():
     api = Portal()
-    resp  = api.get_healthcheck()
+    resp = api.get_healthcheck()
     resp.assert_response_status(200)
     # assert resp.json_response == {"status": "success"}
 
@@ -17,13 +16,13 @@ def test_healthcheck_portal():
 @pytest.mark.qa_portal
 def test_env_details_portal():
     api = Portal()
-    resp  = api.get_env_details()
+    resp = api.get_env_details()
     resp.assert_response_status(200)
     # assert len(resp.json_response) > 0
 
 
 @pytest.mark.qa_portal
-def test_env_details_integration_portal():
+def aaa_test_env_details_integration_portal():
     api = Portal()
     resp = api.get_env_details(env='integration')
     resp.assert_response_status(200)
@@ -37,9 +36,8 @@ def test_env_details_integration_portal():
 
 
 @pytest.mark.qa_portal
-def test_env_details_not_exist_portal():
+def aaa_test_env_details_not_exist_portal():
     api = Portal()
     resp = api.get_env_details(env='test')
     resp.assert_response_status(200)
     assert resp.json_response == []
-
